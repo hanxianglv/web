@@ -1,0 +1,86 @@
+<!doctype html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>我的思考博客</title>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <header class="site-header">
+      <div>
+        <h1>我的思考博客</h1>
+        <p class="subtitle">记录灵感、反思与成长</p>
+      </div>
+      <button id="themeToggle" class="ghost-btn" type="button">切换主题</button>
+    </header>
+
+    <main class="layout">
+      <aside class="card profile-card">
+        <h2>关于我</h2>
+        <p>
+          你好，我是一个热爱思考和写作的人。这是我的数字花园，用来沉淀每天的观察、问题和答案。
+        </p>
+        <ul>
+          <li>📌 主题：学习、技术、生活</li>
+          <li>🧭 目标：持续思考，长期迭代</li>
+          <li>🗓️ 频率：每周至少更新一次</li>
+        </ul>
+      </aside>
+
+      <section class="content">
+        <article class="card editor-card">
+          <h2>写一篇新文章</h2>
+          <form id="postForm">
+            <label>
+              标题
+              <input id="title" type="text" placeholder="例如：如何建立长期主义" required />
+            </label>
+            <label>
+              标签（用逗号分隔）
+              <input id="tags" type="text" placeholder="思考, 成长, 读书" />
+            </label>
+            <label>
+              内容
+              <textarea
+                id="content"
+                rows="8"
+                placeholder="写下你的想法..."
+                required
+              ></textarea>
+            </label>
+            <div class="actions">
+              <button type="submit">发布文章</button>
+              <button id="clearAll" class="danger" type="button">清空所有文章</button>
+            </div>
+          </form>
+        </article>
+
+        <article class="card posts-card">
+          <div class="posts-header">
+            <h2>最近文章</h2>
+            <input id="search" type="search" placeholder="按标题或内容搜索" />
+          </div>
+          <div id="postList" class="post-list"></div>
+          <p id="emptyHint" class="empty-hint">还没有文章，马上写下你的第一条思考吧！</p>
+        </article>
+      </section>
+    </main>
+
+    <template id="postTemplate">
+      <article class="post-item">
+        <header>
+          <h3 class="post-title"></h3>
+          <p class="post-meta"></p>
+        </header>
+        <p class="post-body"></p>
+        <footer class="post-footer">
+          <div class="post-tags"></div>
+          <button class="delete-btn" type="button">删除</button>
+        </footer>
+      </article>
+    </template>
+
+    <script src="script.js"></script>
+  </body>
+</html>
